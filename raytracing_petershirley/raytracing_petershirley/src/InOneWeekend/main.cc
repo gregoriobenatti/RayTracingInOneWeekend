@@ -9,10 +9,10 @@
 double hit_sphere(const point3& center, double radius, const ray& r)
 {
 	vec3 oc = r.origin() - center;
-	auto a = dot(r.direction(), r.direction());
-	auto b = 2.0 * dot(oc, r.direction());
-	auto c = dot(oc, oc) - radius*radius;
-	auto discriminant = b*b - 4*a*c;
+	auto a = r.direction().lenght_squared();
+	auto half_b = dot(oc, r.direction());
+	auto c = oc.lenght_squared() - radius*radius;
+	auto discriminant = half_b*half_b - a*c;
 
 	if (discriminant < 0)
 	{
@@ -20,9 +20,7 @@ double hit_sphere(const point3& center, double radius, const ray& r)
 	}
 	else
 	{
-		//std::cerr << "\naaaaaaaaaaaah: " << ((-b - sqrt(discriminant) / (2.0 * a)));
-
-		return (-b - sqrt(discriminant) / (2.0*a));
+		return (-half_b - sqrt(discriminant)) / a;
 	}
 }
 
