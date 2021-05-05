@@ -146,7 +146,11 @@
   <ItemGroup>
     <ClInclude Include="src\common\color.h" />
     <ClInclude Include="src\common\ray.h" />
+    <ClInclude Include="src\common\rtweekend.h" />
     <ClInclude Include="src\common\vec3.h" />
+    <ClInclude Include="src\InOneWeekend\hittable.h" />
+    <ClInclude Include="src\InOneWeekend\hittable_list.h" />
+    <ClInclude Include="src\InOneWeekend\sphere.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
